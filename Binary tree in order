@@ -1,0 +1,27 @@
+class Node {
+	int key;
+	Node left, right;
+	public Node(int item){
+		key = item;
+		left = right = null;
+	}
+}
+class binary {
+	Node root;
+	binary() { root = null; }
+	void printInorder(Node node){
+		if (node == null)
+			return;
+		printInorder(node.left);
+		System.out.print(node.key + " ");
+		printInorder(node.right);
+	}
+	public static void main(String[] args){
+		binary tree = new binary();
+		tree.root = new Node(1);
+		tree.root.right = new Node(2);
+		tree.root.right.left = new Node(3);
+		System.out.println("Inorder traversal of binary tree is ");
+		tree.printInorder(tree.root);
+	}
+}
